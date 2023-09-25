@@ -24,13 +24,21 @@ function draw() {
     
     for (let j = 0; j < flowers.length; j++) {
       if(drops[i].hits(flowers[j])) {
-        console.log('BOOM');
+        flowers[j].grow();
+        drops[i].evaporate();
       }
     }
   }
   
   for (let i = 0; i < flowers.length; i++) {
     flowers[i].show();
+  }
+  
+  for (let i = 0; i < drops.length; i++) {
+    if(drops[i].toDelete) {
+      drops.splice(i, 1);
+      i--;
+    }
   }
 }
 
@@ -43,7 +51,7 @@ function keyPressed() {
   if(keyCode === RIGHT_ARROW) {
     ship.move(1);
   } else if(keyCode === DOWN_ARROW) {
-    ship.move(-1);
+    ship.move(1);
     console.log('move')
   }
 }

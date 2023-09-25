@@ -7,4 +7,8 @@ function Flower(x, y) {
     fill(255, 0, 200);
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
+  
+  this.grow = function() {
+    this.r += 2;
+  }
 }

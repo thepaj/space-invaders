@@ -2,6 +2,7 @@ function Drop(x, y) {
   this.x = x;
   this.y = y;
   this.r = 8;
+  this.toDelete = false;
   
   this.show = function() {
     fill(150, 0, 255);
@@ -11,6 +12,10 @@ function Drop(x, y) {
   
    this.move = function() {
     this.y = this.y - 5;
+  }
+  
+  this.evaporate = function() {
+    this.toDelete = true;
   }
   
   this.hits = function(flower) {
