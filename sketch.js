@@ -24,16 +24,22 @@ function draw() {
     
     for (let j = 0; j < flowers.length; j++) {
       if(drops[i].hits(flowers[j])) {
-        flowers[j].grow();
+        // delete hit flower
+        flowers.splice(j, 1);
+        j--;
+        // triggers deleting function 'evaporate' for drop
         drops[i].evaporate();
       }
     }
   }
   
+  // shows flowers
   for (let i = 0; i < flowers.length; i++) {
     flowers[i].show();
+    flowers[i].move();
   }
   
+  // deletes drops
   for (let i = 0; i < drops.length; i++) {
     if(drops[i].toDelete) {
       drops.splice(i, 1);
@@ -51,7 +57,7 @@ function keyPressed() {
   if(keyCode === RIGHT_ARROW) {
     ship.move(1);
   } else if(keyCode === DOWN_ARROW) {
-    ship.move(1);
+    ship.move(-1);
     console.log('move')
   }
 }

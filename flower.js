@@ -8,7 +8,7 @@ function Flower(x, y) {
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
   
-  this.grow = function() {
-    this.r += 2;
+  this.move =  function() {
+    this.y += 0.5;
   }
 }
